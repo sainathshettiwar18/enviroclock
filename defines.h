@@ -1,0 +1,30 @@
+//defines.h
+
+#define READBIT(WORD,BIT) ((WORD>>BIT)&1)
+
+
+#define WRITEBIT(WORD,BITPOS,BITLEVEL) \
+        WORD=((WORD&~(1<<BITPOS))|(BITLEVEL<<BITPOS))
+
+#define SETBIT(WORD,BITPOS) 	WORD|=1<<BITPOS
+
+#define READWRITEBIT(DWORD,DBIT,SWORD,SBIT) \
+        DWORD=((DWORD&~(1<<DBIT))|(((SWORD>>SBIT)&1)<<DBIT))
+
+#define WRITENIBBLE(WORD,NIBBLESTARTBITPOS,VAL) \
+        WORD=((WORD&~(15<<NIBBLESTARTBITPOS))| \
+		          (((VAL&15)<<NIBBLESTARTBITPOS)))
+
+#define READNIBBLE(WORD,NIBBLESTARTBIT) \
+        ((WORD>>NIBBLESTARTBIT)&15)
+
+
+				
+#define WRITEBYTE(WORD,BYTESTARTBITPOS,VAL) \
+        WORD=((WORD&~(0xFF<<BYTESTARTBITPOS))| \
+		          ((VAL<<BYTESTARTBITPOS)))
+//writebyte is dangerous
+
+
+
+        
